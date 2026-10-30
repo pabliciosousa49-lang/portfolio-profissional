@@ -1,0 +1,12 @@
+# Configurações locais e credenciais
+.env
+.env.*
+!.env.example
+
+# Dependências e registros locais
+node_modules/
+*.log
+
+# Arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db

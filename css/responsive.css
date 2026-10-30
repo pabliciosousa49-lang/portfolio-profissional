@@ -1,0 +1,801 @@
+/* Responsividade — Desktop amplo, notebook, tablet e dispositivos móveis. */
+
+@media(min-width:1600px) {
+  .conteiner {
+    width: min(1320px,calc(100% - 160px));
+  }
+
+  .apresentacao-grade {
+    min-height: 690px;
+  }
+
+  .apresentacao-retrato {
+    height: 620px;
+  }
+
+  .secao {
+    padding-block: 110px;
+  }
+
+  .apresentacao {
+    padding-block: 55px 40px;
+  }
+}
+
+@media(max-width:1199px) {
+  .conteiner {
+    width: calc(100% - 88px);
+  }
+
+  .navegacao {
+    flex-wrap: wrap;
+    padding-block: 18px;
+    gap: 18px;
+  }
+
+  .navegacao-links {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: center;
+    padding-bottom: 8px;
+    gap: 17px;
+    font-size: 11px;
+  }
+
+  .navegacao-contato {
+    font-size: 11px;
+    padding-inline: 13px;
+  }
+
+  .marca {
+    font-size: 13px;
+  }
+
+  .marca-descricao {
+    font-size: 6px;
+  }
+
+  .apresentacao-grade {
+    min-height: 580px;
+  }
+
+  .apresentacao-retrato {
+    height: 510px;
+  }
+
+  .apresentacao-principios {
+    gap: 15px;
+  }
+
+  .apresentacao-principios > div {
+    padding-right: 14px;
+  }
+
+  .apresentacao-principios strong {
+    font-size: 12px;
+  }
+
+  .apresentacao-principios span {
+    font-size: 9px;
+  }
+
+  .sobre-grade, .habilidades-cabecalho {
+    gap: 45px;
+  }
+
+  .valor-cartao {
+    padding: 20px 16px;
+    gap: 12px;
+  }
+
+  .valor-cartao h3 {
+    font-size: 12px;
+  }
+
+  .trajetoria-grade {
+    gap: 65px;
+  }
+
+  .projetos-grade {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .projetos-apresentacao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    align-items: start;
+  }
+
+  .projetos-apresentacao .identificacao-secao {
+    grid-column: 1/-1;
+    margin-bottom: 15px;
+  }
+
+  .projetos-apresentacao h2 {
+    grid-row: 2/5;
+  }
+
+  .projetos-apresentacao > p:not(.identificacao-secao) {
+    margin: 0 0 17px;
+    max-width: 380px;
+  }
+
+  .projetos-apresentacao .botao {
+    justify-self: start;
+  }
+
+  .projeto-capa {
+    height: 200px;
+  }
+
+  .projeto-conteudo > p {
+    min-height: 60px;
+  }
+
+  .detalhes-grade {
+    grid-template-columns: 1fr 1.6fr;
+    gap: 38px;
+  }
+
+  .funcionalidades-lista {
+    grid-column: 1/-1;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: 10px;
+  }
+
+  .contato-grade {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 35px;
+  }
+
+  .planeta-visual {
+    position: absolute;
+    right: -130px;
+    bottom: -65px;
+    width: 300px;
+    height: 300px;
+    opacity: .35;
+    z-index: 0;
+  }
+
+  .contato-texto, .contato-formulario {
+    position: relative;
+    z-index: 2;
+  }
+
+  .planeta-visual .planeta-anotacao, .planeta-visual .imagem-reserva > small {
+    display: none;
+  }
+}
+
+@media(min-width:768px) and (max-width:1023px) {
+  .certificados-grade {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+  .navegacao {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-block: 18px;
+    gap: 19px;
+  }
+
+  .navegacao-links {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: center;
+    gap: 32px;
+    padding-bottom: 8px;
+  }
+
+  .apresentacao-grade {
+    grid-template-columns: 1.12fr .88fr;
+    min-height: 550px;
+  }
+
+  .apresentacao-retrato {
+    height: 470px;
+  }
+
+  .apresentacao-retrato strong {
+    font-size: 43px;
+  }
+
+  .apresentacao-retrato .imagem-reserva > span:not(.reserva-simbolo) {
+    font-size: 6px;
+  }
+
+  .apresentacao .apresentacao-descricao {
+    font-size: 14px;
+  }
+
+  .apresentacao .botao {
+    font-size: 11px;
+    padding-inline: 16px;
+    gap: 12px;
+  }
+
+  .apresentacao-principios {
+    flex-wrap: wrap;
+    gap: 15px 18px;
+  }
+
+  .apresentacao-principios > div:nth-child(2) {
+    border: 0;
+  }
+
+  .apresentacao-principios > div:last-child {
+    flex-basis: 100%;
+  }
+
+  .anotacao-visual {
+    left: 0;
+    font-size: 14px;
+    bottom: 36px;
+  }
+
+  .legenda-visual {
+    font-size: 7px;
+    right: 14px;
+  }
+
+  .sobre-grade {
+    gap: 28px;
+  }
+
+  .sobre-fotografia {
+    height: 300px;
+  }
+
+  .valores-grade {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .valor-cartao {
+    padding: 22px;
+  }
+
+  .valor-cartao h3 {
+    font-size: 14px;
+  }
+
+  .habilidades-cabecalho {
+    gap: 30px;
+  }
+
+  .codigo-janela pre {
+    padding: 17px;
+    font-size: 11px;
+  }
+
+  .trajetoria-grade {
+    gap: 45px;
+  }
+
+  .detalhes-grade {
+    gap: 25px;
+  }
+
+  .notebook-tela {
+    height: 320px;
+  }
+
+  .demonstracao-conteudo {
+    padding: 24px 16px;
+  }
+
+  .demonstracao-cartoes {
+    gap: 5px;
+  }
+
+  .funcionalidades-lista {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .contato h2 {
+    font-size: 32px;
+  }
+
+  .contato-grade {
+    gap: 25px;
+  }
+
+  .contato-formulario {
+    padding: 18px;
+  }
+
+  .formulario-linha {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media(max-width:767px) {
+  .botao, .botao-compacto, .botao-menu {
+    min-height: 44px;
+  }
+
+  .navegacao-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .certificados-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .formacao-cartao {
+    padding: 22px;
+    gap: 16px;
+  }
+
+  .formacao-informacoes {
+    gap: 16px 30px;
+  }
+
+  .certificado-miniatura {
+    aspect-ratio: 16/9;
+  }
+
+  .certificado-conteudo {
+    padding: 23px;
+  }
+
+  html {
+    scroll-padding-top: 25px;
+  }
+
+  .conteiner {
+    width: calc(100% - 48px);
+  }
+
+  .secao {
+    padding: 65px 0;
+  }
+
+  .secao-numero {
+    position: static;
+    display: block;
+    margin-bottom: 22px;
+    font-size: 14px;
+  }
+
+  .navegacao {
+    min-height: 76px;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .marca {
+    font-size: 14px;
+  }
+
+  .marca-descricao {
+    font-size: 6px;
+  }
+
+  .navegacao-contato {
+    display: none;
+  }
+
+  .botao-menu {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    background: #10182b;
+    border: 1px solid #33405c;
+    border-radius: 7px;
+    padding: 8px 11px;
+    font-size: 11px;
+  }
+
+  .navegacao-links {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 17px 25px;
+    font-size: 12px;
+    padding: 6px 0 23px;
+    margin-top: 15px;
+  }
+
+  .javascript-ativo .navegacao-links:not(.menu-aberto) {
+    display: none;
+  }
+
+  .navegacao-links a:first-child::after {
+    bottom: -4px;
+  }
+
+  .identificacao-secao {
+    font-size: 10px;
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-size: clamp(2.65rem,8.6vw,4rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem,7vw,2.7rem);
+  }
+
+  .apresentacao {
+    padding-top: 30px;
+  }
+
+  .apresentacao-grade {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .apresentacao-texto {
+    padding: 0;
+    grid-column: 1;
+  }
+
+  .apresentacao .secao-numero {
+    grid-column: 1;
+  }
+
+  .apresentacao .apresentacao-descricao {
+    font-size: 14px;
+    max-width: 390px;
+    margin-top: 20px;
+  }
+
+  .acoes {
+    gap: 11px;
+    margin-top: 26px;
+  }
+
+  .apresentacao .botao {
+    font-size: 12px;
+    padding-inline: 18px;
+    gap: 15px;
+  }
+
+  .apresentacao-principios {
+    gap: 15px;
+    margin-top: 29px;
+    flex-wrap: wrap;
+  }
+
+  .apresentacao-principios > div {
+    padding-right: 15px;
+  }
+
+  .apresentacao-principios strong {
+    font-size: 11px;
+  }
+
+  .apresentacao-principios span {
+    font-size: 8px;
+  }
+
+  .apresentacao-visual {
+    margin-top: 35px;
+    max-width: 450px;
+    width: 100%;
+    justify-self: center;
+  }
+
+  .apresentacao-retrato {
+    height: 380px;
+    border-radius: 45% 45% 14px 14px;
+  }
+
+  .apresentacao-retrato strong {
+    font-size: 43px;
+  }
+
+  .anotacao-visual {
+    left: 15px;
+    bottom: 35px;
+    font-size: 15px;
+  }
+
+  .legenda-visual {
+    top: 40px;
+    font-size: 8px;
+  }
+
+  .indicador-rolagem {
+    position: static;
+    margin-top: 24px;
+    justify-self: center;
+  }
+
+  .sobre-grade, .habilidades-cabecalho, .trajetoria-grade, .projetos-grade, .detalhes-grade, .contato-grade {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .sobre-grade {
+    gap: 28px;
+  }
+
+  .sobre-fotografia {
+    height: 280px;
+  }
+
+  .secao-texto p:not(.identificacao-secao) {
+    font-size: 14px;
+    margin-top: 18px;
+  }
+
+  .valores-grade {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .valor-cartao {
+    padding: 18px 13px;
+    gap: 11px;
+  }
+
+  .valor-cartao h3 {
+    font-size: 12px;
+  }
+
+  .icone-valor {
+    width: 32px;
+    height: 34px;
+    font-size: 23px;
+  }
+
+  .codigo-janela pre {
+    font-size: 12px;
+    padding: 19px;
+  }
+
+  .tecnologias-grade {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 10px;
+    margin-top: 27px;
+  }
+
+  .tecnologia-cartao {
+    height: 99px;
+    font-size: 11px;
+  }
+
+  .tecnologia-icone {
+    font-size: 27px;
+  }
+
+  .trajetoria-grade > .secao-numero, .detalhes-grade > .secao-numero, .contato-grade > .secao-numero, .projetos-grade > .secao-numero {
+    margin-bottom: -8px;
+  }
+
+  .trajetoria-visual {
+    height: 150px;
+    margin-top: 10px;
+  }
+
+  .montanha {
+    height: 145px;
+  }
+
+  .linha-tempo {
+    margin-left: 7px;
+    padding-left: 28px;
+  }
+
+  .linha-tempo li::before {
+    left: -35px;
+  }
+
+  .linha-tempo h3 {
+    font-size: 16px;
+  }
+
+  .trajetoria-grade {
+    gap: 27px;
+  }
+
+  .projetos-apresentacao {
+    display: block;
+  }
+
+  .projetos-apresentacao h2 {
+    font-size: 32px;
+  }
+
+  .projetos-apresentacao > p:not(.identificacao-secao) {
+    margin: 18px 0 22px;
+  }
+
+  .projetos-lista {
+    grid-template-columns: 1fr;
+    gap: 23px;
+  }
+
+  .projeto-capa {
+    height: 210px;
+  }
+
+  .projeto-capa .imagem-reserva {
+    padding: 30px;
+  }
+
+  .projeto-capa strong {
+    font-size: 31px;
+  }
+
+  .previa-legenda {
+    font-size: 9px;
+  }
+
+  .projeto-conteudo {
+    padding: 23px;
+  }
+
+  .projeto-conteudo h3 {
+    font-size: 25px;
+  }
+
+  .projeto-conteudo > p {
+    font-size: 14px;
+    min-height: 0;
+  }
+
+  .projeto-conteudo .botao {
+    margin-top: 20px;
+  }
+
+  .etiquetas span {
+    font-size: 10px;
+  }
+
+  .detalhes h2 {
+    font-size: 39px;
+  }
+
+  .detalhes-texto > h3 {
+    max-width: 340px;
+  }
+
+  .detalhes-texto > p:not(.identificacao-secao):not(.aviso-disponibilidade) {
+    font-size: 14px;
+  }
+
+  .notebook {
+    margin: 10px 9px 0;
+  }
+
+  .notebook-tela {
+    height: 310px;
+  }
+
+  .demonstracao-conteudo {
+    padding: 24px 19px;
+  }
+
+  .demonstracao-cartoes {
+    gap: 7px;
+  }
+
+  .funcionalidades-lista {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 10px;
+    margin-top: 0;
+  }
+
+  .funcionalidades-lista > div {
+    padding: 13px 10px;
+    gap: 10px;
+  }
+
+  .funcionalidade-icone {
+    width: 28px;
+    height: 32px;
+    font-size: 17px;
+  }
+
+  .funcionalidades-lista p {
+    font-size: 10px;
+  }
+
+  .funcionalidades-lista small {
+    font-size: 9px;
+  }
+
+  .contato h2 {
+    font-size: 32px;
+  }
+
+  .contato-texto > p:not(.identificacao-secao) {
+    max-width: 400px;
+  }
+
+  .contato-formulario {
+    padding: 20px;
+  }
+
+  .formulario-linha {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .planeta-visual {
+    display: none;
+  }
+
+  .rodape .conteiner {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .rodape .conteiner > span {
+    order: 3;
+    width: 100%;
+    font-size: 9px;
+  }
+
+  .rodape .conteiner > a:last-child {
+    margin-left: auto;
+  }
+}
+
+@media(max-width:359px) {
+  .formacao-cartao {
+    flex-direction: column;
+  }
+
+  .certificado-informacoes {
+    grid-template-columns: 1fr;
+  }
+
+  .conteiner {
+    width: calc(100% - 36px);
+  }
+
+  h1 {
+    font-size: 2.45rem;
+  }
+
+  .apresentacao-principios > div:nth-child(2) {
+    border: 0;
+  }
+
+  .apresentacao-principios > div:last-child {
+    flex-basis: 100%;
+  }
+
+  .valor-cartao {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .funcionalidades-lista {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario-linha {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .apresentacao .acoes {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .apresentacao .acoes .botao {
+    align-self: flex-start;
+  }
+
+  .codigo-janela pre {
+    font-size: 10px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
