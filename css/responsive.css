@@ -222,6 +222,11 @@
     gap: 28px;
   }
 
+  .sobre-informacoes {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .sobre-fotografia {
     height: 440px;
   }
@@ -478,6 +483,11 @@
     gap: 28px;
   }
 
+  .sobre-informacoes {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
   .sobre-fotografia {
     height: clamp(360px,110vw,520px);
   }
@@ -488,7 +498,7 @@
   }
 
   .valores-grade {
-    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-template-columns: 1fr;
     gap: 12px;
     margin-top: 22px;
   }

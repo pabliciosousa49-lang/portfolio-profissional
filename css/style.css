@@ -526,9 +526,87 @@ p {
 
 .sobre-grade {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
   gap: 80px;
   align-items: center;
+}
+
+.sobre-texto {
+  min-width: 0;
+}
+
+.sobre-texto .identificacao-secao::before {
+  content: none;
+}
+
+.sobre-texto .sobre-introducao,
+.sobre-apresentacao p {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.sobre-emoji {
+  flex-shrink: 0;
+  width: 22px;
+  font-size: 17px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.sobre-informacoes {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 20px 24px;
+  margin: 26px 0;
+}
+
+#sobre-titulo {
+  font-size: 40px;
+}
+
+.sobre-informacoes > div {
+  min-width: 0;
+}
+
+.sobre-informacoes dt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c9baff;
+  font-size: 19px;
+}
+
+.sobre-informacoes dd {
+  margin: 6px 0 0 30px;
+  color: var(--texto);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.sobre-apresentacao {
+  display: grid;
+  gap: 18px;
+}
+
+#sobre-introducao{
+  font-size: 16px;
+  color: white;
+}
+.sobre-texto .sobre-apresentacao p {
+  max-width: none;
+  margin: 0;
+}
+
+.sobre-inteligencia-artificial {
+  padding: 18px;
+  border: 1px solid #754bff40;
+  border-radius: 12px;
+  background: linear-gradient(120deg,#754bff12,#2563ff0a);
+  color: #eaecee;
 }
 
 .sobre-fotografia {
@@ -575,7 +653,7 @@ p {
   border-radius: 12px;
   padding: 24px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 19px;
 }
 
@@ -588,7 +666,7 @@ p {
   background: linear-gradient(140deg,#534dc8,#232967);
   border: 1px solid #7875ff50;
   border-radius: 9px;
-  font-size: 26px;
+  font-size: 21px;
   color: #eeebff;
 }
 
@@ -596,6 +674,17 @@ p {
   font-size: 14px;
   font-weight: 450;
   line-height: 1.5;
+}
+
+.valor-cartao > div {
+  min-width: 0;
+}
+
+.valor-cartao p {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 /* Habilidades — Editor estático e tecnologias. */
