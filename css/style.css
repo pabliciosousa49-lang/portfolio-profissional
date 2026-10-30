@@ -134,7 +134,7 @@ p {
 }
 
 .identificacao-secao {
-  font-size: 11px;
+  font-size: 20px;
   letter-spacing: .14em;
   color: #aa94ff;
   font-weight: 500;
@@ -195,7 +195,7 @@ p {
 }
 
 .botao-compacto {
-  font-size: 12px;
+  font-size: 16px;
   min-height: 39px;
   padding: 10px 16px;
   gap: 12px;
@@ -261,25 +261,19 @@ p {
   padding-right: 4px;
 }
 
-.marca-descricao {
-  display: block;
-  font-size: 7px;
-  letter-spacing: .15em;
-  font-weight: 400;
-  color: #9aa8c2;
-  margin-top: 5px;
+#nome-titulo {
+  font-size: 22px;
 }
-
 .navegacao-links {
   display: flex;
   align-items: center;
   gap: 24px;
-  font-size: 12px;
-  color: #bac5d8;
+  font-size: 19px;
+  color: #f3f3f5;
 }
 
 .navegacao-links a:hover {
-  color: white;
+  color: rgb(51, 185, 17);
 }
 
 .navegacao-links a:first-child {
@@ -346,7 +340,8 @@ p {
 .apresentacao-descricao {
   max-width: 450px;
   margin-top: 25px;
-  font-size: 16px;
+  font-size: 18px;
+  color: white;
 }
 
 .apresentacao-principios {
@@ -537,10 +532,15 @@ p {
 }
 
 .sobre-fotografia {
-  height: 320px;
+  height: 500px;
   background: radial-gradient(ellipse at 70% 10%,#2634b655,transparent 70%),#0a1020;
   border: 1px solid #24304a90;
   border-radius: 14px;
+}
+
+.sobre-fotografia > img {
+  object-fit: cover;
+  object-position: 70% top;
 }
 
 .sobre-fotografia .reserva-simbolo {
