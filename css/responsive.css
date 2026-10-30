@@ -9,10 +9,6 @@
     min-height: 690px;
   }
 
-  .apresentacao-retrato {
-    height: 620px;
-  }
-
   .secao {
     padding-block: 110px;
   }
@@ -57,10 +53,6 @@
 
   .apresentacao-grade {
     min-height: 580px;
-  }
-
-  .apresentacao-retrato {
-    height: 510px;
   }
 
   .apresentacao-principios {
@@ -195,10 +187,6 @@
     min-height: 550px;
   }
 
-  .apresentacao-retrato {
-    height: 470px;
-  }
-
   .apresentacao-retrato strong {
     font-size: 43px;
   }
@@ -228,17 +216,6 @@
 
   .apresentacao-principios > div:last-child {
     flex-basis: 100%;
-  }
-
-  .anotacao-visual {
-    left: 0;
-    font-size: 14px;
-    bottom: 36px;
-  }
-
-  .legenda-visual {
-    font-size: 7px;
-    right: 14px;
   }
 
   .sobre-grade {
@@ -482,24 +459,8 @@
     justify-self: center;
   }
 
-  .apresentacao-retrato {
-    height: 380px;
-    border-radius: 45% 45% 14px 14px;
-  }
-
   .apresentacao-retrato strong {
     font-size: 43px;
-  }
-
-  .anotacao-visual {
-    left: 15px;
-    bottom: 35px;
-    font-size: 15px;
-  }
-
-  .legenda-visual {
-    top: 40px;
-    font-size: 8px;
   }
 
   .indicador-rolagem {

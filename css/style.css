@@ -384,6 +384,9 @@ p {
   align-self: stretch;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
 }
 
 /* Imagens — Reservas e carregamento seguro. */
@@ -438,21 +441,17 @@ p {
 
 .apresentacao-retrato {
   width: 100%;
-  height: 570px;
-  border-radius: 48% 48% 18px 18px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 0;
   background: radial-gradient(ellipse at 50% 30%,#20349070,transparent 65%),linear-gradient(150deg,#0d1427,#080d1d);
   border: 1px solid #3c4e834d;
   box-shadow: 25px 10px 90px #2633ff19;
 }
 
-.apresentacao-retrato::after {
-  content: "";
+.apresentacao-retrato .imagem-reserva {
   position: absolute;
-  inset: 20px;
-  border: 1px solid #6879ff25;
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 3;
+  inset: 0;
 }
 
 .apresentacao-retrato .reserva-simbolo {
@@ -476,32 +475,26 @@ p {
   color: #c4cafd;
 }
 
-.anotacao-visual {
-  position: absolute;
-  bottom: 80px;
-  left: -15px;
-  font-family: Georgia,serif;
-  font-style: italic;
-  transform: rotate(-12deg);
-  color: #c0c5ec;
-  font-size: 18px;
-  z-index: 4;
+.apresentacao-legendas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 20px;
+  width: 100%;
 }
 
-.anotacao-visual span {
-  font-size: 35px;
-  display: block;
-  text-align: right;
+.anotacao-visual {
+  font-family: Georgia,serif;
+  font-style: italic;
+  color: #c0c5ec;
+  font-size: 16px;
 }
 
 .legenda-visual {
-  position: absolute;
-  right: 23px;
-  top: 45px;
-  font: 10px monospace;
+  font: 10px/1.6 monospace;
   letter-spacing: .08em;
-  color: #6678b8;
-  z-index: 4;
+  color: #8291af;
 }
 
 .indicador-rolagem {
