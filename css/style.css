@@ -544,10 +544,13 @@ p {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.75;
 }
 
+#foco-frase{
+  font-size: 18px;
+}
 .sobre-emoji {
   flex-shrink: 0;
   width: 22px;
