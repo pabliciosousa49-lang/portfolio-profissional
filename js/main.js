@@ -50,3 +50,57 @@ if (formularioContato) {
     evento.preventDefault();
   });
 }
+
+// Minha Jornada — Um único marco expandido, com estado acessível e foco preservado.
+const botoesTrajetoria = document.querySelectorAll('#experiencia .trajetoria-botao');
+
+function definirEstadoDescricao(botao, expandir) {
+  const descricao = document.getElementById(botao.getAttribute('aria-controls'));
+  if (!descricao) return;
+
+  const estavaAberta = descricao.classList.contains('descricao-aberta');
+  botao.setAttribute('aria-expanded', String(expandir));
+  botao.querySelector('.trajetoria-botao-texto').textContent = expandir
+    ? 'Ocultar descrição'
+    : 'Ver descrição';
+  descricao.inert = !expandir;
+
+  if (expandir) {
+    descricao.hidden = false;
+    // Registrar a altura recolhida antes de iniciar a transição no próximo quadro.
+    descricao.getBoundingClientRect();
+    requestAnimationFrame(() => {
+      if (botao.getAttribute('aria-expanded') === 'true') {
+        descricao.classList.add('descricao-aberta');
+      }
+    });
+  } else {
+    descricao.classList.remove('descricao-aberta');
+    if (!estavaAberta || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      descricao.hidden = true;
+    }
+  }
+}
+
+botoesTrajetoria.forEach((botao) => {
+  const descricao = document.getElementById(botao.getAttribute('aria-controls'));
+  if (!descricao) return;
+
+  botao.addEventListener('click', () => {
+    const expandir = botao.getAttribute('aria-expanded') !== 'true';
+    botoesTrajetoria.forEach((outroBotao) => {
+      if (outroBotao !== botao && outroBotao.getAttribute('aria-expanded') === 'true') {
+        definirEstadoDescricao(outroBotao, false);
+      }
+    });
+    definirEstadoDescricao(botao, expandir);
+  });
+
+  const finalizarRecolhimento = (evento) => {
+    if (evento.target === descricao && botao.getAttribute('aria-expanded') === 'false') {
+      descricao.hidden = true;
+    }
+  };
+  descricao.addEventListener('transitionend', finalizarRecolhimento);
+  descricao.addEventListener('transitioncancel', finalizarRecolhimento);
+});

@@ -861,9 +861,9 @@ pre {
 
 .trajetoria-grade {
   display: grid;
-  grid-template-columns: minmax(0,.85fr) minmax(0,1.3fr);
+  grid-template-columns: minmax(0,1.25fr) minmax(0,1fr);
   align-items: start;
-  gap: 72px;
+  gap: 40px;
 }
 
 .trajetoria-texto,
@@ -878,8 +878,25 @@ pre {
   line-height: 1.8;
 }
 
+.trajetoria-relato {
+  display: grid;
+  gap: 20px;
+  margin-top: 26px;
+  padding: 26px;
+  border: 1px solid #6463bd66;
+  border-radius: 14px;
+  background: linear-gradient(145deg,#192547f2,#241a3bf2);
+}
+
+.trajetoria-relato p {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
 .trajetoria-objetivo {
-  margin-top: 32px;
+  grid-column: 1 / -1;
+  margin-top: 0;
   padding: 24px;
   border: 1px solid #754bff66;
   border-radius: 14px;
@@ -888,13 +905,14 @@ pre {
 
 .trajetoria-objetivo h3 {
   color: #b8a3ff;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .trajetoria-objetivo p {
   margin-top: 12px;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 1.8;
+  color: #fff;
 }
 
 .trajetoria-visual {
@@ -982,10 +1000,70 @@ pre {
 }
 
 .trajetoria-marco {
-  padding: 24px;
+  padding: 22px 24px;
   border: 1px solid #354369;
   border-radius: 14px;
   background: linear-gradient(130deg,#10182bf2,#07101ee8);
+}
+
+.trajetoria-marco:has(.trajetoria-botao[aria-expanded="true"]) {
+  border-color: #8673d9;
+  box-shadow: 0 0 22px #754bff18;
+}
+
+.trajetoria-botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 44px;
+  margin-top: 14px;
+  padding: 8px 14px;
+  border: 1px solid #6355a466;
+  border-radius: 8px;
+  background: #754bff12;
+  color: #d7cbff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.trajetoria-botao:hover {
+  background: #754bff28;
+  border-color: #8673d9;
+}
+
+.trajetoria-seta {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.trajetoria-botao[aria-expanded="true"] .trajetoria-seta {
+  transform: rotate(180deg);
+}
+
+.trajetoria-descricao {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+
+.trajetoria-descricao[hidden] {
+  display: none;
+}
+
+.trajetoria-descricao.descricao-aberta {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.trajetoria-descricao-conteudo {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.trajetoria-descricao-texto {
+  padding-top: 6px;
 }
 
 .linha-tempo-area {
@@ -1011,7 +1089,8 @@ pre {
 
 .linha-tempo p {
   margin-top: 14px;
-  font-size: 14px;
+  color: #fff;
+  font-size: 16px;
   line-height: 1.8;
 }
 

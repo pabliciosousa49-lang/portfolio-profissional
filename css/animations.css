@@ -1,2 +1,15 @@
-/* Animações e transições — Arquivo reservado para uma fase futura.
-   O conteúdo desta fase permanece visível sem efeitos de entrada. */
+/* Minha Jornada — Expansão discreta das descrições, sem efeitos de rolagem. */
+.trajetoria-descricao {
+  transition: grid-template-rows .25s ease, opacity .25s ease;
+}
+
+.trajetoria-seta {
+  transition: transform .25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trajetoria-descricao,
+  .trajetoria-seta {
+    transition: none;
+  }
+}

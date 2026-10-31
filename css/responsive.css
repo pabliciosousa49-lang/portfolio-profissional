@@ -85,7 +85,7 @@
   }
 
   .trajetoria-grade {
-    gap: 65px;
+    gap: 32px;
   }
 
   .projetos-grade {
@@ -574,7 +574,11 @@
 
   .trajetoria-objetivo {
     padding: 22px;
-    margin-top: 26px;
+  }
+
+  .trajetoria-relato {
+    padding: 20px;
+    gap: 18px;
   }
 
   .trajetoria-grade {
