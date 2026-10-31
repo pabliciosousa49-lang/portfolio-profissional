@@ -253,6 +253,7 @@
   }
 
   .trajetoria-grade {
+    grid-template-columns: 1fr;
     gap: 45px;
   }
 
@@ -541,9 +542,13 @@
     margin-bottom: -8px;
   }
 
+  .trajetoria {
+    padding-bottom: 185px;
+  }
+
   .trajetoria-visual {
-    height: 150px;
-    margin-top: 10px;
+    top: auto;
+    height: clamp(280px,65vw,440px);
   }
 
   .montanha {
@@ -561,6 +566,15 @@
 
   .linha-tempo h3 {
     font-size: 16px;
+  }
+
+  .trajetoria-marco {
+    padding: 20px 16px;
+  }
+
+  .trajetoria-objetivo {
+    padding: 22px;
+    margin-top: 26px;
   }
 
   .trajetoria-grade {
