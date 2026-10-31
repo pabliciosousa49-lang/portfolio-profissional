@@ -142,16 +142,6 @@ p {
   line-height: 1.5;
 }
 
-.identificacao-secao::before {
-  content: "";
-  display: inline-block;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--roxo);
-  margin: 0 10px 2px 0;
-}
-
 .secao-texto p:not(.identificacao-secao) {
   max-width: 490px;
   margin-top: 22px;
@@ -327,10 +317,6 @@ p {
 .apresentacao-texto {
   z-index: 2;
   padding: 25px 0 45px;
-}
-
-.apresentacao .identificacao-secao::before {
-  display: none;
 }
 
 .apresentacao .identificacao-secao {
@@ -534,10 +520,6 @@ p {
 
 .sobre-texto {
   min-width: 0;
-}
-
-.sobre-texto .identificacao-secao::before {
-  content: none;
 }
 
 .sobre-texto .sobre-introducao,
