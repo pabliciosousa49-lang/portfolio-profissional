@@ -464,3 +464,49 @@ function iniciarVisualizacaoCertificados() {
 }
 
 iniciarVisualizacaoCertificados();
+
+// Currículo — Prévia das páginas do PDF com zoom e acesso ao original.
+function iniciarVisualizacaoCurriculo() {
+  const link = document.querySelector('[data-visualizar-curriculo]');
+  const painel = document.querySelector('#curriculo-visualizacao');
+  if (!link || !painel || typeof painel.showModal !== 'function') return;
+  const documento = painel.querySelector('.curriculo-documento');
+  const reduzir = painel.querySelector('[data-curriculo-zoom="reduzir"]');
+  const ampliar = painel.querySelector('[data-curriculo-zoom="ampliar"]');
+  const escala = painel.querySelector('.curriculo-escala');
+  let zoom = 100;
+
+  function ajustarZoom(valor) {
+    zoom = Math.max(100, Math.min(250, valor));
+    documento.style.setProperty('--largura-curriculo', zoom + '%');
+    escala.textContent = zoom + '%';
+    reduzir.disabled = zoom === 100;
+    ampliar.disabled = zoom === 250;
+  }
+
+  reduzir.addEventListener('click', () => ajustarZoom(zoom - 25));
+  ampliar.addEventListener('click', () => ajustarZoom(zoom + 25));
+
+  link.addEventListener('click', (evento) => {
+    if (evento.button !== 0 || evento.ctrlKey || evento.metaKey || evento.shiftKey || evento.altKey) return;
+    evento.preventDefault();
+    ajustarZoom(100);
+    document.documentElement.classList.add('curriculo-visualizacao-aberta');
+    painel.showModal();
+    painel.scrollTop = 0;
+    documento.scrollTop = 0;
+  });
+
+  painel.querySelector('.curriculo-fechar').addEventListener('click', () => painel.close());
+  painel.addEventListener('click', (evento) => {
+    if (evento.target !== painel) return;
+    const limites = painel.getBoundingClientRect();
+    if (evento.clientX < limites.left || evento.clientX > limites.right || evento.clientY < limites.top || evento.clientY > limites.bottom) painel.close();
+  });
+  painel.addEventListener('close', () => {
+    document.documentElement.classList.remove('curriculo-visualizacao-aberta');
+    link.focus({ preventScroll: true });
+  });
+}
+
+iniciarVisualizacaoCurriculo();

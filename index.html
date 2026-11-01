@@ -96,13 +96,13 @@
                 →
               </span>
             </a>
-            <button class="botao botao-contorno" type="button" disabled
-              title="O currículo será adicionado em uma próxima etapa">
-              Baixar CV
+            <a class="botao botao-contorno" href="assets/documentos/curriculo-jose-pablicio-sousa-viana.pdf"
+              target="_blank" rel="noopener noreferrer" data-visualizar-curriculo aria-haspopup="dialog" aria-controls="curriculo-visualizacao" aria-label="Visualizar currículo de José Pablicio Sousa Viana em PDF">
+              Visualizar CV
               <span aria-hidden="true">
-                ↓
+                ↗
               </span>
-            </button>
+            </a>
           </div>
           <div class="apresentacao-principios">
             <div>
@@ -147,6 +147,24 @@
         </div>
       </div>
     </section>
+    <dialog class="projeto-painel curriculo-painel" id="curriculo-visualizacao" aria-labelledby="curriculo-visualizacao-titulo">
+      <div class="projeto-painel-conteudo">
+        <div class="projeto-painel-cabecalho">
+          <div><p class="projeto-painel-legenda">CURRÍCULO PROFISSIONAL</p><h2 id="curriculo-visualizacao-titulo">José Pablicio Sousa Viana</h2></div>
+          <button class="projeto-painel-fechar curriculo-fechar" type="button" aria-label="Fechar currículo" autofocus>×</button>
+        </div>
+        <p class="curriculo-ajuda">Leia o currículo abaixo ou <a href="assets/documentos/curriculo-jose-pablicio-sousa-viana.pdf" target="_blank" rel="noopener noreferrer">abra o PDF em uma nova aba</a>.</p>
+        <div class="curriculo-controles" role="group" aria-label="Zoom do currículo">
+          <button class="botao botao-contorno" type="button" data-curriculo-zoom="reduzir" aria-label="Reduzir zoom" disabled>−</button>
+          <output class="curriculo-escala" aria-live="polite">100%</output>
+          <button class="botao botao-contorno" type="button" data-curriculo-zoom="ampliar" aria-label="Ampliar zoom">+</button>
+        </div>
+        <div class="curriculo-documento" role="region" aria-label="Prévia das duas páginas do currículo em PDF" tabindex="0">
+          <figure class="curriculo-pagina"><img src="assets/documentos/previas/curriculo-pagina-1.png" alt="Página 1 do currículo: identificação, resumo profissional, competências, projetos e experiência profissional." width="1082" height="1400" loading="lazy" decoding="async"><figcaption>Página 1 de 2</figcaption></figure>
+          <figure class="curriculo-pagina"><img src="assets/documentos/previas/curriculo-pagina-2.png" alt="Página 2 do currículo: experiência profissional, formação acadêmica e informações adicionais." width="1082" height="1400" loading="lazy" decoding="async"><figcaption>Página 2 de 2</figcaption></figure>
+        </div>
+      </div>
+    </dialog>
     <!-- SEÇÃO: SOBRE MIM — Apresentação e características profissionais. -->
     <section class="secao sobre" id="sobre" aria-labelledby="sobre-titulo">
       <div class="conteiner secao-conteudo">
