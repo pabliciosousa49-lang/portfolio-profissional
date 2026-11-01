@@ -1,4 +1,62 @@
-/* Minha Jornada — Expansão discreta das descrições, sem efeitos de rolagem. */
+/* Movimento — Entradas curtas e interações sem alterar o fluxo do layout. */
+.revelar-entrada.entrada-visivel {
+  opacity: 1;
+  transform: none;
+}
+
+.tecnologia-cartao.revelar-entrada:nth-child(3n + 2),
+.detalhes-recurso.revelar-entrada:nth-child(2) {
+  transition-delay: 60ms;
+}
+
+.tecnologia-cartao.revelar-entrada:nth-child(3n),
+.detalhes-recurso.revelar-entrada:nth-child(3) {
+  transition-delay: 120ms;
+}
+
+.detalhes-recurso.revelar-entrada:nth-child(4) {
+  transition-delay: 180ms;
+}
+
+@keyframes entrada-suave {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes entrada-painel {
+  from { opacity: 0; transform: translateY(12px) scale(.985); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes aparecer-fundo {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media(prefers-reduced-motion:no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .apresentacao-texto > * {
+    animation: entrada-suave .65s both;
+  }
+  .apresentacao-texto > :nth-child(2) { animation-delay: 80ms; }
+  .apresentacao-texto > :nth-child(3) { animation-delay: 160ms; }
+  .apresentacao-texto > :nth-child(4) { animation-delay: 240ms; }
+  .apresentacao-texto > :nth-child(5) { animation-delay: 320ms; }
+  .apresentacao-visual {
+    animation: entrada-suave .8s 120ms both;
+  }
+
+  .projeto-painel[open] {
+    animation: entrada-painel .25s ease-out;
+  }
+  .projeto-painel[open]::backdrop {
+    animation: aparecer-fundo .25s ease-out;
+  }
+}
+
 .trajetoria-descricao {
   transition: grid-template-rows .25s ease, opacity .25s ease;
 }
@@ -7,14 +65,73 @@
   transition: transform .25s ease;
 }
 
-.projeto-cartao {
-  transition: border-color .2s ease, box-shadow .2s ease;
+.botao, .valor-cartao, .tecnologia-cartao, .projeto-cartao, .certificado-cartao, .detalhes-recurso {
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+
+.revelar-entrada {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.3,1), border-color .25s ease, box-shadow .25s ease;
+}
+
+.botao > span, .contato-icone, .tecnologia-icone img {
+  transition: transform .25s ease;
+}
+
+.projeto-capa img, .certificado-miniatura img, .detalhes-recurso img {
+  transition: transform .4s ease;
+}
+
+.certificado-miniatura {
+  overflow: hidden;
+}
+
+@media(hover:hover) and (pointer:fine) {
+  .botao:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px #4932ff30;
+  }
+  .botao:hover > span {
+    transform: translateX(3px);
+  }
+  .valor-cartao:hover, .tecnologia-cartao:hover,
+  .projeto-cartao:hover, .certificado-cartao:hover, .detalhes-recurso:hover {
+    transform: translateY(-4px);
+    border-color: #8b73d9;
+    box-shadow: 0 10px 26px #0004;
+  }
+  .tecnologia-cartao:hover .tecnologia-icone img {
+    transform: scale(1.1) rotate(-4deg);
+  }
+  .projeto-cartao:hover .projeto-capa img,
+  .certificado-cartao:hover .certificado-miniatura img {
+    transform: scale(1.025);
+  }
+  .detalhes-recurso:hover img {
+    transform: scale(1.06);
+  }
+  .contato-link:hover .contato-icone {
+    transform: translateY(-2px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .trajetoria-descricao,
-  .trajetoria-seta,
-  .projeto-cartao {
-    transition: none;
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .revelar-entrada {
+    opacity: 1;
+    transform: none;
+  }
+  .botao:hover, .valor-cartao:hover, .tecnologia-cartao:hover,
+  .projeto-cartao:hover, .certificado-cartao:hover, .detalhes-recurso:hover,
+  .botao:hover > span, .contato-link:hover .contato-icone,
+  .tecnologia-cartao:hover .tecnologia-icone img,
+  .projeto-cartao:hover .projeto-capa img,
+  .certificado-cartao:hover .certificado-miniatura img, .detalhes-recurso:hover img {
+    transform: none;
   }
 }

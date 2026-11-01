@@ -123,16 +123,6 @@ p {
   position: relative;
 }
 
-.secao-numero {
-  position: absolute;
-  left: -38px;
-  top: 0;
-  color: #7f8ba5;
-  font-size: 17px;
-  font-weight: 300;
-  line-height: 1;
-}
-
 .identificacao-secao {
   font-size: 20px;
   letter-spacing: .14em;
@@ -204,12 +194,6 @@ p {
   margin-top: 30px;
 }
 
-.aviso-disponibilidade {
-  font-size: 11px;
-  color: #8490a8;
-  margin-top: 10px;
-}
-
 .texto-gradiente {
   background: linear-gradient(100deg,#9b57ff,#6546ff 70%);
   background-clip: text;
@@ -229,7 +213,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 26px;
+  gap: 20px;
   min-height: 88px;
 }
 
@@ -252,14 +236,19 @@ p {
 }
 
 #nome-titulo {
-  font-size: 30px;
+  font-size: clamp(18px,1.8vw,26px);
   color:#fbfeff;
+}
+
+.cabecalho .marca {
+  min-width: 0;
+  flex-shrink: 1;
 }
 .navegacao-links {
   display: flex;
   align-items: center;
-  gap: 24px;
-  font-size: 19px;
+  gap: 18px;
+  font-size: 15px;
   color: #f3f3f5;
 }
 
@@ -309,9 +298,13 @@ p {
 
 .apresentacao-grade {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
+  grid-template-columns: minmax(0,1.05fr) minmax(0,1fr);
   align-items: center;
   min-height: 625px;
+}
+
+.apresentacao-grade > *, .habilidades-cabecalho > *, .contato-grade > * {
+  min-width: 0;
 }
 
 .apresentacao-texto {
@@ -351,13 +344,6 @@ p {
   display: block;
   font-size: 14px;
   font-weight: 600;
-}
-
-.apresentacao-principios span {
-  display: block;
-  font-size: 10px;
-  color: var(--texto-secundario);
-  margin-top: 3px;
 }
 
 .apresentacao-visual {
@@ -457,58 +443,6 @@ p {
   color: #c4cafd;
 }
 
-.apresentacao-legendas {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8px 20px;
-  width: 100%;
-}
-
-.anotacao-visual {
-  font-family: Georgia,serif;
-  font-style: italic;
-  color: #c0c5ec;
-  font-size: 16px;
-}
-
-.legenda-visual {
-  font: 10px/1.6 monospace;
-  letter-spacing: .08em;
-  color: #8291af;
-}
-
-.indicador-rolagem {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 9px;
-  color: var(--texto-secundario);
-  z-index: 5;
-}
-
-.indicador-mouse {
-  width: 14px;
-  height: 23px;
-  border: 1px solid #b3c2e3;
-  border-radius: 10px;
-  position: relative;
-}
-
-.indicador-mouse::after {
-  content: "";
-  position: absolute;
-  top: 4px;
-  left: 5px;
-  width: 2px;
-  height: 5px;
-  background: #b3c2e3;
-}
-
 /* Sobre mim — Apresentação e valores. */
 
 .sobre-grade {
@@ -531,9 +465,6 @@ p {
   line-height: 1.75;
 }
 
-#foco-frase {
-  font-size: 18px;
-}
 .sobre-emoji {
   flex-shrink: 0;
   width: 22px;
@@ -618,17 +549,9 @@ p {
   font-size: 20px;
 }
 
-.legenda-texto {
-  display: block;
-  font-size: 9px;
-  letter-spacing: .19em;
-  margin-top: 26px;
-  color: #687fa4;
-}
-
 .valores-grade {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 18px;
   margin-top: 36px;
 }
@@ -677,7 +600,7 @@ p {
 
 .habilidades-cabecalho {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2,minmax(0,1fr));
   gap: 90px;
   align-items: center;
 }
@@ -744,7 +667,7 @@ pre {
 
 .tecnologias-grade {
   display: grid;
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(6,minmax(0,1fr));
   gap: 14px;
   margin-top: 40px;
 }
@@ -870,12 +793,6 @@ pre {
 .trajetoria .linha-tempo {
   min-width: 0;
   overflow-wrap: anywhere;
-}
-
-.trajetoria-texto > p:not(.identificacao-secao) {
-  margin-top: 22px;
-  max-width: 440px;
-  line-height: 1.8;
 }
 
 .trajetoria-relato {
@@ -1101,7 +1018,8 @@ pre {
 }
 
 /* Projetos — Carrossel de aplicações verificadas no GitHub. */
-.projetos {
+.secao.projetos {
+  padding-top: clamp(112px,10vw,152px);
   overflow: hidden;
   background: radial-gradient(ellipse at 40% 20%,#25209935,transparent 55%),#040810;
 }
@@ -1339,13 +1257,6 @@ pre {
   border-radius: 20px;
   padding: 6px 9px;
   white-space: nowrap;
-}
-
-.aviso-link {
-  display: block;
-  color: #7f8da8;
-  font-size: 9px;
-  margin-top: 7px;
 }
 
 /* Projetos — Identidade, ações e painéis de detalhes compartilhados. */
@@ -1616,7 +1527,7 @@ pre {
   line-height: 1.4;
   font-weight: 500;
 }
-.detalhes-texto > p:not(.identificacao-secao):not(.detalhes-nota) {
+.detalhes-texto > p:not(.identificacao-secao) {
   margin-top: 20px;
   color: #fff;
   font-size: 16px;
@@ -1631,12 +1542,7 @@ pre {
   padding-inline: 16px;
   font-size: 13px;
 }
-.detalhes-texto .detalhes-nota {
-  margin-top: 18px;
-  font-size: 12px;
-  color: var(--texto-secundario);
-  line-height: 1.7;
-}
+
 .detalhes-apresentacao {
   display: grid;
   gap: 22px;
@@ -1706,7 +1612,7 @@ pre {
   font-size: 12px;
 }
 
-/* Certificados e formação — Conteúdo provisório sem atribuir qualificações. */
+/* Certificados — Documentos reais e visualização ampliada. */
 
 .certificados {
   background: radial-gradient(ellipse at 80% 15%, #39218a26, transparent 55%), var(--fundo);
@@ -1721,69 +1627,9 @@ pre {
   max-width: 580px;
 }
 
-.formacao-bloco {
-  margin-top: 42px;
-}
-
-.formacao-bloco > h3, .certificados-bloco > h3 {
+.certificados-bloco > h3 {
   font-size: 20px;
   margin-bottom: 20px;
-}
-
-.formacao-cartao {
-  display: grid;
-  grid-template-columns: 52px minmax(0,1fr) auto;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 28px;
-  border: 1px solid var(--borda);
-  border-radius: 14px;
-  background: linear-gradient(125deg, var(--superficie), var(--fundo-secundario));
-}
-
-.formacao-icone {
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  width: 52px;
-  height: 52px;
-  border: 1px solid #6357b8;
-  border-radius: 12px;
-  background: #44348d40;
-  color: #b8a6ff;
-  font-size: 38px;
-}
-
-.formacao-icone svg {
-  width: 30px;
-  height: 30px;
-}
-
-.formacao-resumo {
-  min-width: 0;
-}
-
-.formacao-cartao .formacao-instituicao {
-  color: #b8a6ff;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.formacao-cartao .formacao-descricao {
-  max-width: 660px;
-  margin-top: 14px;
-  color: #e4eaf5;
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.formacao-situacao {
-  display: inline-block;
-  padding: 5px 10px;
-  border: 1px solid #6274c5;
-  border-radius: 20px;
-  background: #4a50b32b;
-  color: #edf2ff;
 }
 
 .certificado-situacao {
@@ -1791,37 +1637,6 @@ pre {
   font-size: 9px;
   letter-spacing: .13em;
   color: #b39bff;
-}
-
-.formacao-cartao h4, .certificado-cartao h4 {
-  font-size: 20px;
-  line-height: 1.3;
-  font-weight: 600;
-  margin: 10px 0 8px;
-  letter-spacing: -.025em;
-}
-
-.formacao-cartao p {
-  font-size: 14px;
-}
-
-.formacao-informacoes {
-  display: grid;
-  gap: 20px;
-  margin: 0;
-  padding-left: 24px;
-  border-left: 1px solid var(--borda);
-}
-
-.formacao-informacoes dt, .certificado-informacoes dt {
-  color: var(--texto-secundario);
-  font-size: 13px;
-}
-
-.formacao-informacoes dd, .certificado-informacoes dd {
-  margin: 3px 0 0;
-  font-size: 14px;
-  color: #d2dced;
 }
 
 .certificados-bloco {
@@ -1880,6 +1695,8 @@ pre {
   color: #fff;
   font-size: 20px;
   font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -.025em;
   overflow-wrap: anywhere;
 }
 
@@ -1903,7 +1720,7 @@ pre {
 }
 
 .certificado-informacoes dd {
-  margin-top: 6px;
+  margin: 6px 0 0;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -1956,13 +1773,18 @@ pre {
 /* Contato — Canais e formulário demonstrativo. */
 
 .contato {
-  background: radial-gradient(ellipse at 95% 85%,#0b3e9750,transparent 45%),#03070e;
+  background-color: #03070e;
+  background-image: linear-gradient(90deg,#03070e80,#03070e55 65%,#03070e0d),url("../assets/images/contato-terra-cosmica.png");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
 .contato-grade {
   display: grid;
-  grid-template-columns: 1.05fr 1.1fr .8fr;
+  grid-template-columns: minmax(0,1fr) minmax(0,1.1fr);
+  padding-right: clamp(180px,18vw,300px);
   gap: 35px;
   align-items: center;
 }
@@ -1985,34 +1807,73 @@ pre {
 }
 
 .contato-canais li {
+  min-width: 0;
+}
+
+.contato-link {
   display: flex;
   align-items: center;
   gap: 14px;
   font-size: 13px;
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 11px;
 }
 
-.contato-canais li > span:first-child {
+.contato-link > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.contato-link:hover small, .contato-link:focus-visible small {
+  color: #e7ddff;
+}
+
+.contato-whatsapp {
+  margin-top: 24px;
+  background: linear-gradient(115deg,#156a43,#167e5d);
+  border-color: #46be8b80;
+  gap: 12px;
+}
+
+.contato-icone {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #536eaa70;
+  border-radius: 11px;
+  background: #0b162ce6;
+  color: #91caff;
+}
+
+.contato-icone img, .contato-icone svg {
   width: 24px;
-  color: #83caff;
-  font-size: 25px;
-  line-height: 1;
+  height: 24px;
+  object-fit: contain;
 }
 
-.contato-canais li > span.icone-social {
-  font-size: 16px;
-  font-weight: 700;
+.contato-github {
+  filter: brightness(0) invert(1);
+}
+
+.contato-texto > p.contato-assinatura {
+  color: #c4b5fd;
+  font-size: 14px;
+  font-style: italic;
 }
 
 .contato-canais small {
   display: block;
-  font-size: 10px;
-  color: #7c8ca8;
+  font-size: 12px;
+  color: #b3c2db;
 }
 
 .contato-formulario {
   border: 1px solid #2a3955;
   border-radius: 14px;
-  background: #0a1120aa;
+  background: #0a1120ed;
   padding: 23px;
   z-index: 3;
 }
@@ -2031,7 +1892,7 @@ pre {
 }
 
 .formulario-campo label {
-  font-size: 11px;
+  font-size: 14px;
   color: #d1daea;
 }
 
@@ -2043,7 +1904,7 @@ pre {
   border-radius: 8px;
   padding: 11px;
   color: var(--texto);
-  font-size: 11px;
+  font-size: 16px;
 }
 
 .formulario-campo textarea {
@@ -2065,50 +1926,6 @@ pre {
   font-size: 9px;
   margin-top: 12px;
   text-align: center;
-}
-
-.planeta-visual {
-  height: 350px;
-  overflow: visible;
-}
-
-.planeta-visual > img {
-  object-fit: contain;
-}
-
-.planeta-visual .imagem-reserva {
-  padding: 0;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-
-.planeta {
-  width: 360px;
-  aspect-ratio: 1;
-  border: 1px solid #496ceb;
-  border-radius: 50%;
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  background: radial-gradient(circle at 85% 70%,#020712 30%,transparent 65%),repeating-linear-gradient(15deg,transparent 0 35px,#2861ce55 36px 37px),repeating-linear-gradient(100deg,transparent 0 45px,#2861ce44 46px 47px),radial-gradient(circle at 30% 22%,#2b71de,#102557 40%,#020712 75%);
-  box-shadow: -13px -7px 25px #2563ff66,-2px -2px 4px #a8c9ff;
-  transform: rotate(-22deg);
-}
-
-.planeta-anotacao {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  font: italic 19px/1.3 Georgia,serif;
-  transform: rotate(-18deg);
-  z-index: 1;
-  color: #c1cdee;
-}
-
-.planeta-visual small {
-  z-index: 1;
-  background: #050914b0;
-  padding: 2px 7px;
 }
 
 /* Rodapé — Identidade e retorno ao início. */

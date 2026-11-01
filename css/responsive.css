@@ -19,6 +19,9 @@
 }
 
 @media(max-width:1199px) {
+  .certificados-grade {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
   .projetos-lista {
     --largura-cartao: calc((100% - 24px) / 2);
   }
@@ -45,7 +48,7 @@
     justify-content: center;
     padding-bottom: 8px;
     gap: 17px;
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .navegacao-contato {
@@ -55,10 +58,6 @@
 
   .marca {
     font-size: 13px;
-  }
-
-  .marca-descricao {
-    font-size: 6px;
   }
 
   .apresentacao-grade {
@@ -74,11 +73,7 @@
   }
 
   .apresentacao-principios strong {
-    font-size: 12px;
-  }
-
-  .apresentacao-principios span {
-    font-size: 9px;
+    font-size: 14px;
   }
 
   .sobre-grade, .habilidades-cabecalho {
@@ -104,39 +99,26 @@
   }
 
   .contato-grade {
-    grid-template-columns: 1fr 1.1fr;
+    grid-template-columns: minmax(0,1fr) minmax(0,1.1fr);
+    padding-right: 0;
     gap: 35px;
-  }
-
-  .planeta-visual {
-    position: absolute;
-    right: -130px;
-    bottom: -65px;
-    width: 300px;
-    height: 300px;
-    opacity: .35;
-    z-index: 0;
   }
 
   .contato-texto, .contato-formulario {
     position: relative;
     z-index: 2;
   }
-
-  .planeta-visual .planeta-anotacao, .planeta-visual .imagem-reserva > small {
-    display: none;
-  }
 }
 
 @media(min-width:768px) and (max-width:1023px) {
+  .apresentacao h1 {
+    font-size: clamp(38px,5vw,50px);
+  }
   .detalhes-grade {
     grid-template-columns: minmax(0,1fr);
+    gap: 25px;
   }
   .detalhes-recursos {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-  }
-
-  .certificados-grade {
     grid-template-columns: repeat(2,minmax(0,1fr));
   }
 
@@ -151,12 +133,12 @@
     order: 3;
     flex-basis: 100%;
     justify-content: center;
-    gap: 32px;
+    gap: 24px;
     padding-bottom: 8px;
   }
 
   .apresentacao-grade {
-    grid-template-columns: 1.12fr .88fr;
+    grid-template-columns: minmax(0,1.12fr) minmax(0,.88fr);
     min-height: 550px;
   }
 
@@ -192,6 +174,7 @@
   }
 
   .sobre-grade {
+    grid-template-columns: minmax(0,1fr);
     gap: 28px;
   }
 
@@ -201,7 +184,7 @@
   }
 
   .sobre-fotografia {
-    height: 440px;
+    height: clamp(420px,65vw,580px);
   }
 
   .valores-grade {
@@ -217,21 +200,18 @@
   }
 
   .habilidades-cabecalho {
+    grid-template-columns: minmax(0,1fr);
     gap: 30px;
   }
 
   .codigo-janela pre {
     padding: 17px;
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .trajetoria-grade {
     grid-template-columns: 1fr;
     gap: 45px;
-  }
-
-  .detalhes-grade {
-    gap: 25px;
   }
 
   .contato h2 {
@@ -253,13 +233,14 @@
 }
 
 @media(max-width:767px) {
-  .detalhes .conteiner {
-    width: calc(100% - 32px);
+  .contato {
+    background-image: linear-gradient(180deg,#03070ebd,#03070ee6),url("../assets/images/contato-terra-cosmica.png");
+    background-position: 78% center;
   }
   .detalhes-texto > h3 {
     font-size: clamp(19px,5vw,22px);
   }
-  .detalhes-texto > p:not(.identificacao-secao):not(.detalhes-nota) {
+  .detalhes-texto > p:not(.identificacao-secao) {
     line-height: 1.65;
   }
   .detalhes-apresentacao {
@@ -336,6 +317,7 @@
   }
   .carrossel-controles {
     width: 100%;
+    flex-wrap: wrap;
   }
   .carrossel-movimento {
     margin-right: auto;
@@ -364,37 +346,8 @@
     grid-template-columns: 1fr;
   }
 
-  .formacao-cartao {
-    grid-template-columns: 44px minmax(0,1fr);
-    padding: 22px;
-    gap: 16px;
-  }
-
-  .formacao-icone {
-    width: 44px;
-    height: 44px;
-  }
-
-  .formacao-informacoes {
-    grid-column: 1 / -1;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 16px 30px;
-    padding: 18px 0 0;
-    border-left: 0;
-    border-top: 1px solid var(--borda);
-  }
-
-  .formacao-cartao h4 {
-    font-size: 20px;
-    overflow-wrap: anywhere;
-  }
-
   .certificado-miniatura {
     aspect-ratio: 16/9;
-  }
-
-  .certificado-conteudo {
-    padding: 16px;
   }
 
   html {
@@ -402,32 +355,31 @@
   }
 
   .conteiner {
-    width: calc(100% - 48px);
+    width: calc(100% - 32px);
   }
 
   .secao {
     padding: 65px 0;
   }
 
-  .secao-numero {
-    position: static;
-    display: block;
-    margin-bottom: 22px;
-    font-size: 14px;
-  }
-
   .navegacao {
     min-height: 76px;
     flex-wrap: wrap;
-    gap: 0;
+    gap: 12px;
+    padding-block: 14px;
+  }
+
+  .cabecalho .marca {
+    flex: 1;
+  }
+
+  #nome-titulo {
+    font-size: clamp(17px,4.6vw,22px);
+    overflow-wrap: anywhere;
   }
 
   .marca {
     font-size: 14px;
-  }
-
-  .marca-descricao {
-    font-size: 6px;
   }
 
   .navegacao-contato {
@@ -449,7 +401,7 @@
     width: 100%;
     flex-wrap: wrap;
     gap: 17px 25px;
-    font-size: 12px;
+    font-size: 14px;
     padding: 6px 0 23px;
     margin-top: 15px;
   }
@@ -488,10 +440,6 @@
     grid-column: 1;
   }
 
-  .apresentacao .secao-numero {
-    grid-column: 1;
-  }
-
   .apresentacao .apresentacao-descricao {
     font-size: 14px;
     max-width: 390px;
@@ -520,11 +468,7 @@
   }
 
   .apresentacao-principios strong {
-    font-size: 11px;
-  }
-
-  .apresentacao-principios span {
-    font-size: 8px;
+    font-size: 13px;
   }
 
   .apresentacao-visual {
@@ -536,12 +480,6 @@
 
   .apresentacao-retrato strong {
     font-size: 43px;
-  }
-
-  .indicador-rolagem {
-    position: static;
-    margin-top: 24px;
-    justify-self: center;
   }
 
   .sobre-grade, .habilidades-cabecalho, .trajetoria-grade, .detalhes-grade, .contato-grade {
@@ -579,7 +517,11 @@
   }
 
   .valor-cartao h3 {
-    font-size: 12px;
+    font-size: 16px;
+  }
+
+  .valor-cartao p {
+    font-size: 14px;
   }
 
   .icone-valor {
@@ -608,12 +550,8 @@
     font-size: 27px;
   }
 
-  .trajetoria-grade > .secao-numero, .detalhes-grade > .secao-numero, .contato-grade > .secao-numero, .projetos-grade > .secao-numero {
-    margin-bottom: -8px;
-  }
-
   .trajetoria {
-    padding-bottom: 185px;
+    padding-bottom: 65px;
   }
 
   .trajetoria-visual {
@@ -651,6 +589,12 @@
     gap: 18px;
   }
 
+  .trajetoria-relato p, .trajetoria-objetivo p,
+  .projetos-apresentacao > div > p:last-child, .carrossel-barra > p {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
   .trajetoria-grade {
     gap: 27px;
   }
@@ -680,12 +624,8 @@
   }
 
   .formulario-linha {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0,1fr);
     gap: 10px;
-  }
-
-  .planeta-visual {
-    display: none;
   }
 
   .rodape .conteiner {
@@ -704,14 +644,22 @@
   }
 }
 
-@media(max-width:359px) {
-  .formacao-cartao {
-    grid-template-columns: minmax(0,1fr);
+@media(max-width:480px) {
+  .certificado-resumo h4 {
+    font-size: 16px;
   }
 
-  .formacao-informacoes {
-    grid-template-columns: minmax(0,1fr);
+  .certificado-informacoes dd, .certificado-resumo > p {
+    font-size: 14px;
   }
+
+  .certificado-conteudo .certificado-situacao, .certificado-informacoes dt {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media(max-width:359px) {
 
   .certificado-conteudo {
     padding: 12px;
@@ -720,23 +668,6 @@
 
   .certificado-informacoes {
     gap: 8px;
-  }
-
-  .certificado-conteudo .certificado-situacao, .certificado-informacoes dt {
-    font-size: 13px;
-    overflow-wrap: anywhere;
-  }
-
-  .certificado-informacoes dd, .certificado-resumo > p {
-    font-size: 14px;
-  }
-
-  .certificado-resumo h4 {
-    font-size: 18px;
-  }
-
-  .conteiner {
-    width: calc(100% - 36px);
   }
 
   h1 {
