@@ -7,9 +7,14 @@
   transition: transform .25s ease;
 }
 
+.projeto-cartao {
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .trajetoria-descricao,
-  .trajetoria-seta {
+  .trajetoria-seta,
+  .projeto-cartao {
     transition: none;
   }
 }

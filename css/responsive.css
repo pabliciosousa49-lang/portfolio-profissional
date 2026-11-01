@@ -19,6 +19,16 @@
 }
 
 @media(max-width:1199px) {
+  .projetos-lista {
+    --largura-cartao: calc((100% - 24px) / 2);
+  }
+  .projetos-apresentacao {
+    align-items: flex-start;
+  }
+  .carrossel-barra {
+    align-items: flex-start;
+  }
+
   .conteiner {
     width: calc(100% - 88px);
   }
@@ -86,44 +96,6 @@
 
   .trajetoria-grade {
     gap: 32px;
-  }
-
-  .projetos-grade {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-
-  .projetos-apresentacao {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 40px;
-    align-items: start;
-  }
-
-  .projetos-apresentacao .identificacao-secao {
-    grid-column: 1/-1;
-    margin-bottom: 15px;
-  }
-
-  .projetos-apresentacao h2 {
-    grid-row: 2/5;
-  }
-
-  .projetos-apresentacao > p:not(.identificacao-secao) {
-    margin: 0 0 17px;
-    max-width: 380px;
-  }
-
-  .projetos-apresentacao .botao {
-    justify-self: start;
-  }
-
-  .projeto-capa {
-    height: 200px;
-  }
-
-  .projeto-conteudo > p {
-    min-height: 60px;
   }
 
   .detalhes-grade {
@@ -296,6 +268,34 @@
 }
 
 @media(max-width:767px) {
+  .projetos-apresentacao {
+    flex-direction: column;
+    gap: 22px;
+  }
+  .projetos-lista {
+    --largura-cartao: 88%;
+    gap: 16px;
+  }
+  .carrossel-barra {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .carrossel-controles {
+    width: 100%;
+  }
+  .carrossel-movimento {
+    margin-right: auto;
+  }
+  .projeto-conteudo {
+    padding: 20px;
+  }
+  .projeto-conteudo h3 {
+    font-size: 22px;
+  }
+  .carrossel-rodape {
+    align-items: flex-start;
+  }
+
   .botao, .botao-compacto, .botao-menu {
     min-height: 44px;
   }
@@ -474,7 +474,7 @@
     justify-self: center;
   }
 
-  .sobre-grade, .habilidades-cabecalho, .trajetoria-grade, .projetos-grade, .detalhes-grade, .contato-grade {
+  .sobre-grade, .habilidades-cabecalho, .trajetoria-grade, .detalhes-grade, .contato-grade {
     grid-template-columns: 1fr;
     gap: 30px;
   }
@@ -583,56 +583,6 @@
 
   .trajetoria-grade {
     gap: 27px;
-  }
-
-  .projetos-apresentacao {
-    display: block;
-  }
-
-  .projetos-apresentacao h2 {
-    font-size: 32px;
-  }
-
-  .projetos-apresentacao > p:not(.identificacao-secao) {
-    margin: 18px 0 22px;
-  }
-
-  .projetos-lista {
-    grid-template-columns: 1fr;
-    gap: 23px;
-  }
-
-  .projeto-capa {
-    height: 210px;
-  }
-
-  .projeto-capa .imagem-reserva {
-    padding: 30px;
-  }
-
-  .projeto-capa strong {
-    font-size: 31px;
-  }
-
-  .previa-legenda {
-    font-size: 9px;
-  }
-
-  .projeto-conteudo {
-    padding: 23px;
-  }
-
-  .projeto-conteudo h3 {
-    font-size: 25px;
-  }
-
-  .projeto-conteudo > p {
-    font-size: 14px;
-    min-height: 0;
-  }
-
-  .projeto-conteudo .botao {
-    margin-top: 20px;
   }
 
   .etiquetas span {
