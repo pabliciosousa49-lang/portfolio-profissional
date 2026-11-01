@@ -48,54 +48,10 @@ O projeto é estático e pode ser servido diretamente. Não há instalação de 
 - Imagens com textos alternativos e carregamento adiado quando adequado.
 - Layout conferido em larguras de 320 a 1920 px.
 
-## Visualização de Projeto
+## Visualize o projeto
 
-Clone o repositório:
+Explore o portfólio diretamente no navegador:
 
-```bash
-git clone https://portfolio-neon-delta-bo7xw07ypa.vercel.app/
-cd portfolio-profissional
-```
+**[Acessar portfólio online →](https://portfolio-neon-delta-bo7xw07ypa.vercel.app/)**
 
-Abra `index.html` no navegador. Para executar por HTTP, com **Python 3** instalado, use:
-
-```bash
-python -m http.server 5500 --bind 127.0.0.1
-```
-
-Acesse [http://127.0.0.1:5500](http://127.0.0.1:5500). O vídeo do TaskFlow e os links externos precisam de conexão com a internet.
-
-## Estrutura do projeto
-
-```text
-portfolio-profissional/
-├── index.html
-├── css/
-│   ├── style.css          # Identidade visual e componentes
-│   ├── responsive.css     # Adaptações por tamanho de tela
-│   └── animations.css     # Entradas, interações e movimento reduzido
-├── js/
-│   ├── main.js            # Menu, carrossel, painéis e documentos
-│   └── scroll.js          # Revelação de elementos durante a rolagem
-├── assets/
-│   ├── certificados/      # Certificados reais em imagem
-│   ├── documentos/        # Currículo em PDF, Word e prévias das páginas
-│   ├── icons/             # Ícones e licença dos recursos Devicon
-│   └── images/            # Fotografias, projetos e fundos
-└── docs/                  # Documentação complementar
-```
-
-## Observações sobre os recursos
-
-- O **formulário de contato é demonstrativo** e não envia mensagens. Para entrar em contato, utilize os links de e-mail, redes sociais ou WhatsApp.
-- A prévia do currículo utiliza imagens geradas das páginas do PDF. Ao atualizar o documento, atualize também as prévias em `assets/documentos/previas/`.
-- Ícones provenientes do Devicon têm sua licença disponível em [assets/icons/LICENCA-devicon.txt](assets/icons/LICENCA-devicon.txt).
-
-## Contato
-
-Estou em busca de oportunidades para contribuir com projetos reais de desenvolvimento de software.
-
-- [LinkedIn](https://www.linkedin.com/in/pablicio-sousa-6554462a0/)
-- [GitHub](https://github.com/pabliciosousa49-lang)
-- [E-mail](mailto:pabliciosousa49@gmail.com)
-- [WhatsApp](https://wa.me/5588996942635)
+O layout se adapta a computadores, tablets e celulares.
