@@ -422,3 +422,45 @@ function iniciarVideoDestaqueTaskFlow() {
 iniciarCarrosselProjetos();
 iniciarPaineisProjetos();
 iniciarVideoDestaqueTaskFlow();
+
+// Certificados — Imagem completa em painel nativo, com retorno do foco.
+function iniciarVisualizacaoCertificados() {
+  const secao = document.querySelector('#certificados');
+  const painel = secao?.querySelector('#certificado-visualizacao');
+  if (!painel || typeof painel.showModal !== 'function') return;
+  const imagem = painel.querySelector('.certificado-documento');
+  const titulo = painel.querySelector('#certificado-visualizacao-titulo');
+  const original = painel.querySelector('.certificado-original');
+  let retorno;
+
+  secao.addEventListener('click', (evento) => {
+    const link = evento.target.closest('[data-visualizar-certificado]');
+    if (!link || evento.button !== 0 || evento.ctrlKey || evento.metaKey || evento.shiftKey || evento.altKey) return;
+    evento.preventDefault();
+    const cartao = link.closest('.certificado-cartao');
+    const miniatura = cartao.querySelector('.certificado-miniatura img');
+    titulo.textContent = cartao.querySelector('h4').textContent;
+    imagem.src = link.href;
+    imagem.alt = miniatura.alt;
+    imagem.setAttribute('width', miniatura.getAttribute('width'));
+    imagem.setAttribute('height', miniatura.getAttribute('height'));
+    original.href = link.href;
+    retorno = link;
+    document.documentElement.classList.add('certificado-visualizacao-aberta');
+    painel.showModal();
+    painel.scrollTop = 0;
+  });
+
+  painel.querySelector('.certificado-fechar').addEventListener('click', () => painel.close());
+  painel.addEventListener('click', (evento) => {
+    if (evento.target !== painel) return;
+    const limites = painel.getBoundingClientRect();
+    if (evento.clientX < limites.left || evento.clientX > limites.right || evento.clientY < limites.top || evento.clientY > limites.bottom) painel.close();
+  });
+  painel.addEventListener('close', () => {
+    document.documentElement.classList.remove('certificado-visualizacao-aberta');
+    if (retorno?.isConnected) retorno.focus({ preventScroll: true });
+  });
+}
+
+iniciarVisualizacaoCertificados();

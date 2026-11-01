@@ -365,12 +365,28 @@
   }
 
   .formacao-cartao {
+    grid-template-columns: 44px minmax(0,1fr);
     padding: 22px;
     gap: 16px;
   }
 
+  .formacao-icone {
+    width: 44px;
+    height: 44px;
+  }
+
   .formacao-informacoes {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 16px 30px;
+    padding: 18px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--borda);
+  }
+
+  .formacao-cartao h4 {
+    font-size: 20px;
+    overflow-wrap: anywhere;
   }
 
   .certificado-miniatura {
@@ -378,7 +394,7 @@
   }
 
   .certificado-conteudo {
-    padding: 23px;
+    padding: 16px;
   }
 
   html {
@@ -690,11 +706,33 @@
 
 @media(max-width:359px) {
   .formacao-cartao {
-    flex-direction: column;
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .formacao-informacoes {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .certificado-conteudo {
+    padding: 12px;
+    column-gap: 8px;
   }
 
   .certificado-informacoes {
-    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .certificado-conteudo .certificado-situacao, .certificado-informacoes dt {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  .certificado-informacoes dd, .certificado-resumo > p {
+    font-size: 14px;
+  }
+
+  .certificado-resumo h4 {
+    font-size: 18px;
   }
 
   .conteiner {
