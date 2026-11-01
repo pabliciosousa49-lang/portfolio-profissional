@@ -239,6 +239,24 @@ function iniciarCarrosselProjetos() {
     pausaEscolhida = !pausaEscolhida;
     atualizarPreferencias();
   });
+  carrossel.addEventListener('projeto-visualizacao', (evento) => {
+    if (evento.detail.aberta) {
+      pausas.add('painel');
+      navegacao = null;
+    } else {
+      pausas.delete('painel');
+      agendarMovimento();
+    }
+  });
+  carrossel.addEventListener('projeto-reproducao', (evento) => {
+    if (evento.detail.ativa) {
+      pausas.add('video');
+      navegacao = null;
+    } else {
+      pausas.delete('video');
+      agendarMovimento();
+    }
+  });
   carrossel.addEventListener('mouseenter', () => pausas.add('mouse'));
   carrossel.addEventListener('mouseleave', () => { pausas.delete('mouse'); agendarMovimento(); });
   carrossel.addEventListener('focusin', (evento) => {
@@ -319,4 +337,88 @@ function iniciarCarrosselProjetos() {
   else window.addEventListener('resize', medirCarrossel);
 }
 
+// Projetos — Painéis acessíveis compartilhando a mesma interação.
+function iniciarPaineisProjetos() {
+  const secao = document.querySelector('#projetos');
+  if (!secao) return;
+  const carrossel = secao.querySelector('.carrossel-projetos');
+  const retornos = new WeakMap();
+
+  function informarVisualizacao(aberta) {
+    carrossel.dispatchEvent(new CustomEvent('projeto-visualizacao', { detail: { aberta } }));
+  }
+
+  secao.addEventListener('click', (evento) => {
+    const botao = evento.target.closest('[data-projeto-detalhes]');
+    if (!botao) return;
+    const painel = document.getElementById(botao.getAttribute('aria-controls'));
+    if (!painel || !painel.matches('.projeto-painel') || painel.open) return;
+    const retorno = botao.closest('[data-copia]')
+      ? secao.querySelector('.projeto-item:not([data-copia]) [aria-controls="' + painel.id + '"]')
+      : botao;
+    retornos.set(painel, retorno);
+    informarVisualizacao(true);
+    document.querySelector('.detalhes-video')?.pause();
+    document.documentElement.classList.add('projeto-painel-aberto');
+    painel.showModal();
+    painel.scrollTop = 0;
+    const video = painel.querySelector('.projeto-video');
+    if (video) {
+      const aviso = painel.querySelector('.projeto-video-ajuda');
+      aviso.textContent = 'Use os controles para assistir ao vídeo. O carrossel fica pausado enquanto o painel estiver aberto.';
+      painel.querySelector('.projeto-video-alternativa').hidden = true;
+      video.src = video.dataset.origem;
+      video.load();
+    }
+  });
+
+  secao.querySelectorAll('.projeto-painel').forEach((painel) => {
+    painel.querySelector('.projeto-painel-fechar').addEventListener('click', () => painel.close());
+    painel.addEventListener('click', (evento) => {
+      if (evento.target === painel) painel.close();
+    });
+    painel.addEventListener('close', () => {
+      const video = painel.querySelector('.projeto-video');
+      if (video) {
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+      }
+      document.documentElement.classList.remove('projeto-painel-aberto');
+      const retorno = retornos.get(painel);
+      if (retorno?.isConnected) retorno.focus({ preventScroll: true });
+      informarVisualizacao(false);
+    });
+    const video = painel.querySelector('.projeto-video');
+    video?.addEventListener('error', () => {
+      if (!painel.open) return;
+      painel.querySelector('.projeto-video-ajuda').textContent = 'Não foi possível carregar o vídeo. Tente novamente ou abra o arquivo diretamente.';
+      painel.querySelector('.projeto-video-alternativa').hidden = false;
+    });
+  });
+}
+
+// Projeto Destaque — Reprodução nativa sem início automático.
+function iniciarVideoDestaqueTaskFlow() {
+  const area = document.querySelector('.detalhes-demonstracao');
+  const video = area?.querySelector('.detalhes-video');
+  const carrossel = document.querySelector('.carrossel-projetos');
+  if (!video || !carrossel) return;
+  function atualizarPausaVideo() {
+    const interagindo = area.matches(':hover') || area.contains(document.activeElement);
+    const ativa = (!video.paused && !video.ended) || interagindo;
+    carrossel.dispatchEvent(new CustomEvent('projeto-reproducao', { detail: { ativa } }));
+  }
+  ['play', 'pause', 'ended'].forEach((evento) => video.addEventListener(evento, atualizarPausaVideo));
+  ['pointerenter', 'pointerleave', 'focusin'].forEach((evento) => area.addEventListener(evento, atualizarPausaVideo));
+  area.addEventListener('focusout', () => requestAnimationFrame(atualizarPausaVideo));
+  video.addEventListener('error', () => {
+    area.querySelector('.detalhes-video-alternativa').hidden = false;
+    area.querySelector('figcaption').textContent = 'Não foi possível carregar o vídeo. Você pode abri-lo diretamente pelo link abaixo.';
+    atualizarPausaVideo();
+  });
+}
+
 iniciarCarrosselProjetos();
+iniciarPaineisProjetos();
+iniciarVideoDestaqueTaskFlow();

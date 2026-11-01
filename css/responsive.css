@@ -99,14 +99,8 @@
   }
 
   .detalhes-grade {
-    grid-template-columns: 1fr 1.6fr;
-    gap: 38px;
-  }
-
-  .funcionalidades-lista {
-    grid-column: 1/-1;
-    grid-template-columns: repeat(4,1fr);
-    margin-top: 10px;
+    grid-template-columns: minmax(0,1fr) minmax(0,1.3fr);
+    gap: 28px;
   }
 
   .contato-grade {
@@ -135,6 +129,13 @@
 }
 
 @media(min-width:768px) and (max-width:1023px) {
+  .detalhes-grade {
+    grid-template-columns: minmax(0,1fr);
+  }
+  .detalhes-recursos {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
   .certificados-grade {
     grid-template-columns: repeat(2,minmax(0,1fr));
   }
@@ -233,22 +234,6 @@
     gap: 25px;
   }
 
-  .notebook-tela {
-    height: 320px;
-  }
-
-  .demonstracao-conteudo {
-    padding: 24px 16px;
-  }
-
-  .demonstracao-cartoes {
-    gap: 5px;
-  }
-
-  .funcionalidades-lista {
-    grid-template-columns: repeat(2,1fr);
-  }
-
   .contato h2 {
     font-size: 32px;
   }
@@ -268,6 +253,75 @@
 }
 
 @media(max-width:767px) {
+  .detalhes .conteiner {
+    width: calc(100% - 32px);
+  }
+  .detalhes-texto > h3 {
+    font-size: clamp(19px,5vw,22px);
+  }
+  .detalhes-texto > p:not(.identificacao-secao):not(.detalhes-nota) {
+    line-height: 1.65;
+  }
+  .detalhes-apresentacao {
+    gap: 20px;
+  }
+  .detalhes-demonstracao figcaption {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .detalhes-funcionalidades > h3, .detalhes-ferramentas > h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+  .detalhes-tecnologias {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 8px;
+  }
+  .detalhes-tecnologias > span {
+    min-width: 0;
+    min-height: 44px;
+    padding: 8px 10px;
+    white-space: normal;
+  }
+  .detalhes-recursos {
+    grid-template-columns: minmax(0,1fr);
+    gap: 16px;
+  }
+  .detalhes-recurso {
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
+  }
+  .detalhes-demonstracao {
+    padding: 8px;
+  }
+  .detalhes-texto .acoes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .projeto-acoes-destaque {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .projeto-acoes-destaque .botao {
+    font-size: 13px;
+  }
+
+  .projeto-painel-conteudo {
+    padding: 16px;
+  }
+
+  .projeto-recursos {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .projeto-painel-acoes {
+    flex-direction: column;
+  }
+
   .projetos-apresentacao {
     flex-direction: column;
     gap: 22px;
@@ -597,51 +651,6 @@
     max-width: 340px;
   }
 
-  .detalhes-texto > p:not(.identificacao-secao):not(.aviso-disponibilidade) {
-    font-size: 14px;
-  }
-
-  .notebook {
-    margin: 10px 9px 0;
-  }
-
-  .notebook-tela {
-    height: 310px;
-  }
-
-  .demonstracao-conteudo {
-    padding: 24px 19px;
-  }
-
-  .demonstracao-cartoes {
-    gap: 7px;
-  }
-
-  .funcionalidades-lista {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 10px;
-    margin-top: 0;
-  }
-
-  .funcionalidades-lista > div {
-    padding: 13px 10px;
-    gap: 10px;
-  }
-
-  .funcionalidade-icone {
-    width: 28px;
-    height: 32px;
-    font-size: 17px;
-  }
-
-  .funcionalidades-lista p {
-    font-size: 10px;
-  }
-
-  .funcionalidades-lista small {
-    font-size: 9px;
-  }
-
   .contato h2 {
     font-size: 32px;
   }
@@ -707,10 +716,6 @@
   .valor-cartao {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .funcionalidades-lista {
-    grid-template-columns: 1fr;
   }
 
   .formulario-linha {
