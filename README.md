@@ -4,9 +4,7 @@ Meu portfólio reúne projetos de desenvolvimento Full-Stack, trajetória profis
 
 Desenvolvido com **HTML5, CSS3 e JavaScript ES6+**, com identidade visual escura, detalhes em azul e roxo e layouts adaptados para desktop, tablet e celular.
 
-[Projetos](#projetos-apresentados) · [Execução local](#execução-local) · [Estrutura](#estrutura-do-projeto) · [Contato](#contato)
-
-![Arte da Terra e ondas cósmicas utilizada no fundo da seção de contato](assets/images/contato-terra-cosmica.png)
+![Arte da Terra e ondas cósmicas utilizada no fundo da seção de contato](assets/images/portifolio.png)
 
 ## Funcionalidades
 
@@ -50,12 +48,12 @@ O projeto é estático e pode ser servido diretamente. Não há instalação de 
 - Imagens com textos alternativos e carregamento adiado quando adequado.
 - Layout conferido em larguras de 320 a 1920 px.
 
-## Execução local
+## Visualização de Projeto
 
 Clone o repositório:
 
 ```bash
-git clone https://github.com/pabliciosousa49-lang/portfolio-profissional.git
+git clone https://portfolio-neon-delta-bo7xw07ypa.vercel.app/
 cd portfolio-profissional
 ```
 
